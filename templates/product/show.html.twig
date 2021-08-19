@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{product.name}} - La Boutique Française{% endblock %}
+
+{% block content %}
+    
+<div class="row">
+    <div class="col-md-5">
+        <img class="img-fluid" src="/uploads/{{product.illustration}}" alt="{{product.name}}">
+    </div>
+    <div class="col-md-7 my-auto">
+        <h3>{{product.name}}</h3>
+        <hr>
+        <p>{{product.subtitle}}</p>
+        <p>{{product.description}}</p>
+        <span class="product-page-price">{{(product.price / 100)|number_format(2, ',','.') }}€</span>
+        <hr>
+        <a href="{{path('add_to_cart', {'id' : product.id}) }}" class="btn btn-primary">Ajouter au panier</a>
+    </div>
+    
+</div>
+{% endblock %}
